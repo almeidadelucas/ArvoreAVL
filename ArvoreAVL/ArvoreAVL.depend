@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1514140574 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\main.cpp
+	<iostream>
+
+1536355339 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\arvoreavl.cpp
+	"ArvoreAVL.h"
+
+1536355339 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\arvoreavl.h
+
+1536355330 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\minhainformacao.cpp
+	"MinhaInformacao.h"
+
+1536355330 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\minhainformacao.h
+
+1536355507 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\informacao.cpp
+	"Informacao.h"
+
+1536355501 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\informacao.h
+
+1536355311 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\no.cpp
+	"No.h"
+
+1536355311 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\no.h
+
