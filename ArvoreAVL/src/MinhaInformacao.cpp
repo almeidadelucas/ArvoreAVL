@@ -24,10 +24,10 @@ int MinhaInformacao::compareTo(Informacao* info) throw(char*)
 
     MinhaInformacao* mi = (MinhaInformacao*)info;
 
-    if(this->codigo == mi->codigo)
+    if(this->codigo == mi->getCodigo())
         return 0;
     else
-        if(this->codigo < mi->codigo)
+        if(this->codigo < mi->getCodigo())
             return -1;
     return 1;
 }

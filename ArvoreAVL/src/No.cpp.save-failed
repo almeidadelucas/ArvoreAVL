@@ -40,32 +40,20 @@ void No::setPtrEsq(No* no)
     this->ptrEsq = no;
 }
 
-void No::setPtrDir(No* no)
+void No::setPtrEsq(No* no)
 {
-    this->ptrDir = no;
-}
-
-void No::incNiveisEsq()
-{
-    this->niveisEsq++;
-}
-
-void No::incNiveisDir()
-{
-    this->niveisDir++;
+    this->ptrEsq = no;
 }
 
 void No::printar(ostream& os)
 {
     os << "(";
-    cout << "esq: " << this->ptrEsq << "\n";
+
     if(this->ptrEsq != NULL)
         this->ptrEsq->printar(os);
 
-    os << this->info->getCodigo();
+    os << this->info;
 
     if(this->ptrDir != NULL)
         this->ptrDir->printar(os);
-
-    os << ")";
 }

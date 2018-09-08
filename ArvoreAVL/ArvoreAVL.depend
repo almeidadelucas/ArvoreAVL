@@ -1,24 +1,39 @@
 # depslib dependency file v1.0
-1514140574 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\main.cpp
+1536415201 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\main.cpp
 	<iostream>
-
-1536355339 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\arvoreavl.cpp
+	"MinhaInformacao.h"
 	"ArvoreAVL.h"
 
-1536355339 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\arvoreavl.h
+1536415722 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\arvoreavl.cpp
+	"ArvoreAVL.h"
+	"No.h"
+	"Informacao.h"
+	<iostream>
 
-1536355330 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\minhainformacao.cpp
+1536414157 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\arvoreavl.h
+	"No.h"
+	"Informacao.h"
+	<iostream>
+
+1536415058 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\minhainformacao.cpp
 	"MinhaInformacao.h"
+	<informacao.h>
+	<sstream>
 
-1536355330 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\minhainformacao.h
+1536355875 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\minhainformacao.h
+	<informacao.h>
 
 1536355507 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\informacao.cpp
 	"Informacao.h"
 
 1536355501 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\informacao.h
 
-1536355311 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\no.cpp
+1536415429 source:c:\users\lucas\documents\github\arvoreavl\arvoreavl\src\no.cpp
 	"No.h"
+	"Informacao.h"
+	<sstream>
 
-1536355311 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\no.h
+1536415740 c:\users\lucas\documents\github\arvoreavl\arvoreavl\include\no.h
+	"Informacao.h"
+	<iostream>
 
