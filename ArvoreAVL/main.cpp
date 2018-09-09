@@ -20,7 +20,7 @@ int main()
 
     cout << ar;
     cout << "\n exclunindo 4... \n";
-    ar.excluirInfo(mi1);
+    ar.excluirInfo(mi2);
     cout << ar;
 
     return 0;
