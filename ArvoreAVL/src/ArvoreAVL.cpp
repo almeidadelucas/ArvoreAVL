@@ -2,6 +2,7 @@
 #include "No.h"
 #include "Informacao.h"
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ ArvoreAVL::ArvoreAVL()
 
 ArvoreAVL::~ArvoreAVL()
 {
+    delete raiz;
 }
 
 void ArvoreAVL::inserirInfo(Informacao* i) throw(char*)
@@ -31,20 +33,19 @@ No* ArvoreAVL::inserir(No* no, Informacao* i)
     int c = i->compareTo(no->getInformacao());
 
     if(c < 0)
-    {
         no->setPtrEsq(inserir(no->getPtrEsq(), i));
-        no->incNiveisEsq();
-    }
     if(c > 0)
-    {
         no->setPtrDir(inserir(no->getPtrDir(), i));
-        no->incNiveisDir();
-    }
 
     return this->balancear(no);
 }
 
-No* No::balancear(No* no)
+void ArvoreAVL::teste()
+{
+    this->raiz = this->balancear(this->raiz);
+}
+
+No* ArvoreAVL::balancear(No* no)
 {
     if(no->getEquilibrio() > 1)
     {
@@ -64,40 +65,32 @@ No* No::balancear(No* no)
     return no;
 }
 
-No* No::giroParaEsq(No* no)
+No* ArvoreAVL::giroParaEsq(No* no)
 {
-    No* raizAntiga = no;
-    // Filho da direita vira nova raiz
-    no = no->getPtrDir();
-    // Raiz original vira filho da  esquerda da nova raiz
-    no->setPtrEsq(raizAntiga);
-    //Filho da esq do filho da dir vira filho da dir do filho da esq
-    no->getPtrEsq()->setPtrDir(raizAntiga->getPtrDir()->getPtrEsq());
+    No* novaRaiz = no->getPtrDir();
+    no->setPtrDir(novaRaiz->getPtrEsq());
+    novaRaiz->setPtrEsq(no);
 
-    return no;
+    return novaRaiz;
 }
 
-No* No::giroParaDir(No* no)
+No* ArvoreAVL::giroParaDir(No* no)
 {
-    No* raizAntiga = no;
-    //O filho da esquerda vira nova raiz
-    no = no->getPtrEsq();
-    //A raiz original vira filho da direita da nova raiz
-    no->setPtrDir(aux);
-    //O filho da dir do filha da esq vira filho da esq da raiz original
-    raiz.setPtrEsq(raizAntiga->getPtrEsq()->getPtrDir());
+    No* novaRaiz = no->getPtrEsq();
+    no->setPtrEsq(novaRaiz->getPtrDir());
+    novaRaiz->setPtrDir(no);
 
-    return no;
+    return novaRaiz;
 }
-No* No::giroDuploParaEsq(No* no)
+No* ArvoreAVL::giroDuploParaEsq(No* no)
 {
     no->setPtrDir(this->giroParaDir(no->getPtrDir()));
-    return no->giroParaEsq(no);
+    return giroParaEsq(no);
 }
-No* No::giroDuploParaDir(No* no)
+No* ArvoreAVL::giroDuploParaDir(No* no)
 {
     no->setPtrEsq(this->giroParaEsq(no->getPtrEsq()));
-    return no->giroParaDir(no);
+    return giroParaDir(no);
 }
 
 void ArvoreAVL::excluirInfo(Informacao* i)

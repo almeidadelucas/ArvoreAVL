@@ -4,8 +4,6 @@
 
 No::No(Informacao* i)
 {
-    this->niveisDir = 0;
-    this->niveisEsq = 0;
     this->ptrDir    = NULL;
     this->ptrEsq    = NULL;
     this->info      = i;
@@ -13,6 +11,8 @@ No::No(Informacao* i)
 
 No::~No()
 {
+    delete ptrDir;
+    delete ptrEsq;
 }
 
 Informacao* No::getInformacao()
@@ -32,7 +32,24 @@ No* No::getPtrDir()
 
 int No::getEquilibrio()
 {
-    return this->niveisDir - this->niveisEsq;
+    int i = this->getNivel(this->ptrDir) - this->getNivel(this->getPtrEsq());
+    return i;
+}
+
+int No::getNivel(No* no)
+{
+    if(no == NULL)
+        return -1;
+
+    int a = no->getInformacao()->getCodigo();
+
+    int nEsq = this->getNivel(no->ptrEsq);
+    int nDir = this->getNivel(no->ptrDir);
+
+    if(nEsq > nDir)
+        return ++nEsq;
+
+    return ++nDir;
 }
 
 void No::setPtrEsq(No* no)
@@ -45,20 +62,10 @@ void No::setPtrDir(No* no)
     this->ptrDir = no;
 }
 
-void No::incNiveisEsq()
-{
-    this->niveisEsq++;
-}
-
-void No::incNiveisDir()
-{
-    this->niveisDir++;
-}
-
 void No::printar(ostream& os)
 {
     os << "(";
-    cout << "esq: " << this->ptrEsq << "\n";
+
     if(this->ptrEsq != NULL)
         this->ptrEsq->printar(os);
 

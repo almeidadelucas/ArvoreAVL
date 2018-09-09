@@ -15,16 +15,13 @@ class No
         No*         getPtrDir();
         void        setPtrEsq(No*);
         void        setPtrDir(No*);
-        void        incNiveisEsq();
-        void        incNiveisDir();
         int         getEquilibrio();
         void        printar(ostream&);
     private:
         Informacao* info;
         No*         ptrEsq;
         No*         ptrDir;
-        int         niveisEsq;
-        int         niveisDir;
+        int         getNivel(No*);
 };
 
 #endif // NO_H

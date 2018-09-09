@@ -15,6 +15,7 @@ class ArvoreAVL
         void excluirInfo(Informacao*);
         bool tem(Informacao*);
         friend ostream& operator<<(ostream&, const ArvoreAVL&);
+        void teste();
     private:
         No*  raiz;
         No*  balancear(No*);
