@@ -20,6 +20,11 @@ Informacao* No::getInformacao()
     return this->info;
 }
 
+void No::setInformacao(Informacao* i)
+{
+    this->info = i;
+}
+
 No* No::getPtrEsq()
 {
     return this->ptrEsq;

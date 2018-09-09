@@ -40,11 +40,6 @@ No* ArvoreAVL::inserir(No* no, Informacao* i)
     return this->balancear(no);
 }
 
-void ArvoreAVL::teste()
-{
-    this->raiz = this->balancear(this->raiz);
-}
-
 No* ArvoreAVL::balancear(No* no)
 {
     if(no->getEquilibrio() > 1)
@@ -93,9 +88,72 @@ No* ArvoreAVL::giroDuploParaDir(No* no)
     return giroParaDir(no);
 }
 
-void ArvoreAVL::excluirInfo(Informacao* i)
+void ArvoreAVL::excluirInfo(Informacao* i) throw(char*)
 {
+    if(i == NULL)
+        throw("A inforamção não pode ser nula");
+    if(!tem(i))
+        throw("A informação não existe na árvore");
+    this->raiz = this->excluir(this->raiz, i);
+}
 
+No* ArvoreAVL::excluir(No* no, Informacao* i)
+{
+    if(no == NULL)
+        return NULL;
+    int c = i->compareTo(no->getInformacao());
+    //---------------------------------------------------------
+    // A informação a ser exluida é menor que a que está no nó
+    // portanto está a esquerda do nó
+    //---------------------------------------------------------
+    if(c < 0)
+        no->setPtrEsq(this->excluir(no->getPtrEsq(), i));
+    //---------------------------------------------------------
+    // A informação a ser exluida é maior que a que está no nó
+    // portanto está a direita do nó
+    //---------------------------------------------------------
+    else
+        if(c > 0)
+            no->setPtrDir(this->excluir(no->getPtrDir(), i));
+        else
+            if(no->getPtrEsq() == NULL)
+                return no->getPtrDir();
+            else
+                if(no->getPtrDir() == NULL)
+                    return no->getPtrEsq();
+                else
+                {
+                    // O maior vira o novo nó
+                    if(no->getNivel(no->getPtrEsq()) > no->getNivel(no->getPtrDir()))
+                    {
+                        Informacao* maior = this->encontrarMaior(no->getPtrEsq());
+                        no->setInformacao(maior);
+                        no->setPtrEsq(this->excluir(no->getPtrEsq(), maior));
+                    }
+                    // O menor vira o novo nó
+                    else
+                    {
+                        Informacao* menor = this->encontrarMenor(no->getPtrDir());
+                        no->setInformacao(menor);
+                        no->setPtrDir(this->excluir(no->getPtrDir(), menor));
+                    }
+                }
+
+    return this->balancear(no);
+}
+
+Informacao* ArvoreAVL::encontrarMaior(No* no)
+{
+    while(no->getPtrDir() != NULL)
+        no = no->getPtrDir();
+    return no->getInformacao();
+}
+
+Informacao* ArvoreAVL::encontrarMenor(No* no)
+{
+    while(no->getPtrEsq() != NULL)
+        no = no->getPtrEsq();
+    return no->getInformacao();
 }
 
 bool ArvoreAVL::tem(Informacao* i)

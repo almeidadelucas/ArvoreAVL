@@ -19,7 +19,9 @@ int main()
     ar.inserirInfo(mi4);
 
     cout << ar;
-
+    cout << "\n exclunindo 4... \n";
+    ar.excluirInfo(mi1);
+    cout << ar;
 
     return 0;
 }

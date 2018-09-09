@@ -12,19 +12,21 @@ class ArvoreAVL
         ArvoreAVL();
         virtual ~ArvoreAVL();
         void inserirInfo(Informacao*) throw(char*);
-        void excluirInfo(Informacao*);
+        void excluirInfo(Informacao*) throw(char*);
         bool tem(Informacao*);
         friend ostream& operator<<(ostream&, const ArvoreAVL&);
-        void teste();
     private:
-        No*  raiz;
-        No*  balancear(No*);
-        No*  giroParaEsq(No*);
-        No*  giroParaDir(No*);
-        No*  giroDuploParaEsq(No*);
-        No*  giroDuploParaDir(No*);
-        No*  inserir(No*,Informacao*);
+        No* raiz;
+        No* balancear(No*);
+        No* giroParaEsq(No*);
+        No* giroParaDir(No*);
+        No* giroDuploParaEsq(No*);
+        No* giroDuploParaDir(No*);
+        No* inserir(No*,Informacao*);
+        No* excluir(No*,Informacao*);
         bool tem(No*, Informacao*);
+        Informacao* encontrarMaior(No*);
+        Informacao* encontrarMenor(No*);
 };
 
 #endif // ARVOREAVL_H
