@@ -3,6 +3,7 @@
 #include "Informacao.h"
 #include <iostream>
 #include <cstring>
+#include <stdexcept>
 
 using namespace std;
 
@@ -16,12 +17,12 @@ ArvoreAVL::~ArvoreAVL()
     delete raiz;
 }
 
-void ArvoreAVL::inserirInfo(Informacao* i) throw(char*)
+void ArvoreAVL::inserirInfo(Informacao* i)
 {
     if(i == NULL)
-        throw("A informação não pode ser nula!");
+        throw invalid_argument("A informação não pode ser nula!");
     if(tem(this->raiz, i))
-        throw("A informação já existe!");
+        throw invalid_argument("A informação já existe!");
     this->raiz = inserir(this->raiz, i);
 }
 
@@ -88,12 +89,12 @@ No* ArvoreAVL::giroDuploParaDir(No* no)
     return giroParaDir(no);
 }
 
-void ArvoreAVL::excluirInfo(Informacao* i) throw(char*)
+void ArvoreAVL::excluirInfo(Informacao* i)
 {
     if(i == NULL)
-        throw("A inforamção não pode ser nula");
+        throw invalid_argument("A inforamção não pode ser nula");
     if(!tem(i))
-        throw("A informação não existe na árvore");
+        throw invalid_argument("A informação não existe na árvore");
     this->raiz = this->excluir(this->raiz, i);
 }
 

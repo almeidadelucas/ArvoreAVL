@@ -1,6 +1,7 @@
 #ifndef MINHAINFORMACAO_H
 #define MINHAINFORMACAO_H
 #include <informacao.h>
+#include <string>
 
 class MinhaInformacao : public Informacao
 {
@@ -8,7 +9,8 @@ class MinhaInformacao : public Informacao
         MinhaInformacao(int);
         virtual ~MinhaInformacao();
         int getCodigo();
-        int compareTo(Informacao*) throw(char*);
+        int compareTo(Informacao*);
+        std::string toString();
     private:
         int codigo;
 };

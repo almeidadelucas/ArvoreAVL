@@ -38,3 +38,48 @@
 	"Informacao.h"
 	<iostream>
 
+1543251492 source:e:\projetos\arvoreavl\arvoreavl\src\informacao.cpp
+	"Informacao.h"
+
+1543409142 e:\projetos\arvoreavl\arvoreavl\include\informacao.h
+	<string>
+
+1543409262 source:e:\projetos\arvoreavl\arvoreavl\src\minhainformacao.cpp
+	"MinhaInformacao.h"
+	<informacao.h>
+	<sstream>
+	<string>
+	<stdexcept>
+
+1543409288 e:\projetos\arvoreavl\arvoreavl\include\minhainformacao.h
+	<informacao.h>
+	<string>
+
+1543409324 source:e:\projetos\arvoreavl\arvoreavl\src\no.cpp
+	"No.h"
+	"Informacao.h"
+	<sstream>
+
+1543251492 e:\projetos\arvoreavl\arvoreavl\include\no.h
+	"Informacao.h"
+	<iostream>
+
+1543409344 source:e:\projetos\arvoreavl\arvoreavl\main.cpp
+	<iostream>
+	"MinhaInformacao.h"
+	"ArvoreAVL.h"
+	<stdexcept>
+
+1543408846 e:\projetos\arvoreavl\arvoreavl\include\arvoreavl.h
+	"No.h"
+	"Informacao.h"
+	<iostream>
+
+1543409092 source:e:\projetos\arvoreavl\arvoreavl\src\arvoreavl.cpp
+	"ArvoreAVL.h"
+	"No.h"
+	"Informacao.h"
+	<iostream>
+	<cstring>
+	<stdexcept>
+

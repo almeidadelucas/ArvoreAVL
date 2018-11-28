@@ -11,8 +11,8 @@ class ArvoreAVL
     public:
         ArvoreAVL();
         virtual ~ArvoreAVL();
-        void inserirInfo(Informacao*) throw(char*);
-        void excluirInfo(Informacao*) throw(char*);
+        void inserirInfo(Informacao*);
+        void excluirInfo(Informacao*);
         bool tem(Informacao*);
         friend ostream& operator<<(ostream&, const ArvoreAVL&);
     private:

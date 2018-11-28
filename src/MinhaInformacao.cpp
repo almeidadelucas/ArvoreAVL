@@ -1,6 +1,10 @@
 #include "MinhaInformacao.h"
 #include <informacao.h>
 #include <sstream>
+#include <string>
+#include <stdexcept>
+
+using namespace std;
 
 MinhaInformacao::MinhaInformacao(int cod)
 {
@@ -17,10 +21,10 @@ int MinhaInformacao::getCodigo()
     return this->codigo;
 }
 
-int MinhaInformacao::compareTo(Informacao* info) throw(char*)
+int MinhaInformacao::compareTo(Informacao* info)
 {
     if(info == NULL)
-        throw("A informação não pode ser nula");
+        throw invalid_argument("A informação não pode ser nula");
 
     MinhaInformacao* mi = (MinhaInformacao*)info;
 
@@ -30,4 +34,11 @@ int MinhaInformacao::compareTo(Informacao* info) throw(char*)
         if(this->codigo < mi->getCodigo())
             return -1;
     return 1;
+}
+
+string MinhaInformacao::toString()
+{
+    stringstream ss;
+    ss << this->codigo;
+    return ss.str();
 }

@@ -46,8 +46,6 @@ int No::getNivel(No* no)
     if(no == NULL)
         return -1;
 
-    int a = no->getInformacao()->getCodigo();
-
     int nEsq = this->getNivel(no->ptrEsq);
     int nDir = this->getNivel(no->ptrDir);
 
@@ -74,7 +72,7 @@ void No::printar(ostream& os)
     if(this->ptrEsq != NULL)
         this->ptrEsq->printar(os);
 
-    os << this->info->getCodigo();
+    os << this->info->toString();
 
     if(this->ptrDir != NULL)
         this->ptrDir->printar(os);
